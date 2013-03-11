@@ -57,7 +57,7 @@ img = data.moon()
 # Contrast stretching
 p2 = np.percentile(img, 2)
 p98 = np.percentile(img, 98)
-img_rescale = exposure.equalize(img)
+img_rescale = exposure.equalize_hist(img)
 
 # Equalization
 selem = disk(30)
@@ -67,13 +67,16 @@ img_eq = rank.equalize(img, selem=selem)
 # Display results
 f, axes = plt.subplots(2, 3, figsize=(8, 4))
 
+print "\tPlotting original image..." 
 ax_img, ax_hist, ax_cdf = plot_img_and_hist(img, axes[:, 0])
 ax_img.set_title('Low contrast image')
 ax_hist.set_ylabel('Number of pixels')
 
+print "\tPlotting globally equalized image..." 
 ax_img, ax_hist, ax_cdf = plot_img_and_hist(img_rescale, axes[:, 1])
 ax_img.set_title('Global equalise')
 
+print "\tPlotting locally equalized image..." 
 ax_img, ax_hist, ax_cdf = plot_img_and_hist(img_eq, axes[:, 2])
 ax_img.set_title('Local equalize')
 ax_cdf.set_ylabel('Fraction of total intensity')

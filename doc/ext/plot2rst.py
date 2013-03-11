@@ -282,6 +282,7 @@ def write_example(src_name, src_dir, rst_dir, cfg):
     cfg : config object
         Sphinx config object created by Sphinx.
     """
+    print "Writing {}...".format(src_name)
     last_dir = src_dir.psplit()[-1]
     # to avoid leading . in file names, and wrong names in links
     if last_dir == '.' or last_dir == 'examples':

@@ -187,7 +187,7 @@ from skimage.filter import rank
 
 ima = data.camera()
 # equalize globally and locally
-glob = exposure.equalize(ima) * 255
+glob = exposure.equalize_hist(ima) * 255
 loc = rank.equalize(ima, disk(20))
 
 # extract histogram for each image

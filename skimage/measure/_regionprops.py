@@ -236,7 +236,7 @@ def regionprops(label_image, properties=['Area', 'Centroid'],
 
     props = []
 
-    objects = ndimage.find_objects(label_image)
+    objects = ndimage.find_objects(label_image.astype(int))
     for i, sl in enumerate(objects):
         label = i + 1
 

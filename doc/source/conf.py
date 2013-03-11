@@ -19,7 +19,10 @@ import sys, os
 #sys.path.append(os.path.abspath('.'))
 
 curpath = os.path.dirname(__file__)
-sys.path.append(os.path.join(curpath, '..', 'ext'))
+sys.path.append(os.path.abspath(os.path.join(curpath, '..', 'ext')))
+sys.path.insert(0, os.path.abspath(os.path.join(curpath, '..', '..')))
+
+print sys.path
 
 # -- General configuration -----------------------------------------------------
 
